@@ -1,0 +1,74 @@
+.bins-nav-cont {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.bin-logo {
+    width: 50px;
+    height: 50px;
+    margin: auto;
+}
+
+.icon-div {
+    width: 100%;
+    height: 120px;
+    background-color: #D34735;
+    display: flex;
+    flex-direction: row;
+}
+
+.logo-cont {
+    width: 200px;
+    height: 120px;
+    background-color: #AB2A19;
+    display: flex;
+}
+
+.create-divs {
+    width: 26em;
+    height: 60px;
+    background-color: #ED6B5A;
+    border-radius: 4px;
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.bin-shelves {
+    width: 26em;
+    height: 60px;
+    background-color: #D34735;
+    border-radius: 4px;
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.create-title {
+    margin-left: 50px;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+.bin-nav-title {
+    color: white;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-weight: bold;
+    font-size: 36px;
+}
+
+.bin-shelf-title {
+    color: white;
+    margin-left: 100px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300 bold;
+}

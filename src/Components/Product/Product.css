@@ -1,0 +1,26 @@
+.icon-div-product {
+    width: 100%;
+    height: 120px;
+    background-color: #ED6B5A;
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-bar-title-bin {
+    width: 100%;
+}
+
+.logo-cont-two {
+    width: 200px;
+    height: 120px;
+    background-color: #D34735;
+    display: flex;
+}
+
+.bin-nav-title-for-product-page {
+    padding: 20px;
+    color: white;
+    margin: auto;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400 bold;
+}
