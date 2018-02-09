@@ -12,7 +12,8 @@ export default class Product extends Component {
             name: '',
             price: '',
             picture: '',
-            id: this.props.match.params.id.split('')
+            id: this.props.match.params.id.split(''),
+            edit: true
         }
     }
 
@@ -29,8 +30,17 @@ export default class Product extends Component {
         })
     }
 
+    editButton() {
+        this.setState({
+            edit: false
+        })
+    }
 
-
+    // deleteItem() {
+    //     axios.delete(`/api/product/${this.state.id.join('')}`).then(res => {
+            
+    //     })
+    // }
 
     render() {
         console.log(this.state)
@@ -47,16 +57,24 @@ export default class Product extends Component {
                         <h1 className="bin-nav-title">{`Bin ${this.state.id[1]}`}</h1>
                     </div>
                 </div>
-{/* ---------------------------------NAVIGATION BAR ABOVE THIS LINE---------------------------------- */}
+                {/* ---------------------------------NAVIGATION BAR ABOVE THIS LINE---------------------------------- */}
                 <div className="product-parent">
-                    <img className="product-image" src={this.state.product.picture}/>
+                    <div className="image-container">
+                    <img className="product-image" src={this.state.picture} />
+                    </div>
                     <div className="product-name-price">
                         <h4 className="name-price-headers">Name</h4>
-                        <div className="info-containers"><p className="container-text">{this.state.name}</p></div>
+                        <div className="info-containers"><input disable="true" className="container-text" value={this.state.name}></input></div>
                         <h4 className="name-price-headers">Price</h4>
-                        <div className="info-containers"><p className="container-text">{this.state.price}</p></div>
+                        <div className="info-containers"><input value={this.state.price} disable="true" className="container-text"></input></div>
+                        <div className="button-container">
+                            <button className="edit-button" onClick={ () => this.editButton()}>Edit</button>
+                            <button className="delete-button">Delete</button>
+                        </div>
                     </div>
+
                 </div>
+
 
 
             </div>

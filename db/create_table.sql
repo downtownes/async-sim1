@@ -4,4 +4,4 @@ prod_name VARCHAR(256),
 shelf VARCHAR(1),
 bin INTEGER,
 picture TEXT,
-price INTEGER)
+price DECIMAL(10,2);
