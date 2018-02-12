@@ -37,6 +37,22 @@ module.exports = {
         })
     },
 
+    addBin: (req, res, next) => {
+        const db = req.app.get('db');
+
+        db.get_product([req.params.id[0], req.params.id[1]]).then(items => {
+            console.log('items', items);
+            if(items.length === 0){
+                db.add_item([req.params.id[0], req.params.id[1], req.body.prod_name, req.body.price, req.body.picture]).then(newItem => {
+                    console.log('newItem', newItem)
+                    res.status(200).send(newItem)
+                })
+            }else {
+                res.status(200).send('Bin is full!')
+            }
+        })
+    },
+
     deleteProduct: (req, res, next) => {
         const db = req.app.get('db');
 

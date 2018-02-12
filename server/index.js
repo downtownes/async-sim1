@@ -16,6 +16,7 @@ massive(process.env.CONNECTION_STRING).then(db => {
 app.get('/api/shelf', controller.getShelf);
 app.get('/api/bins/:id', controller.getBin);
 app.get('/api/product/:id', controller.getProduct);
+app.post('/api/bin/:id', controller.addBin);
 app.delete('/api/product/:id', controller.deleteProduct);
 
 

@@ -1,8 +1,51 @@
+.create-page-logo-cont {
+    width: 180px;
+    height: 120px;
+    background-color: #AB2A19;
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+}
+
+
+.position-cont {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main-container {
+    width: 640px;
+    height: 440px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.headers {
+    text-align: left;
+    margin-left: 20px;
+    margin-bottom: none;
+    height: 75px;
+}
+
 .input-boxes {
     color: black;
-    width: 25em;
-    height: 60px;
-    font-size: 24px;
+    width: 620px;
+    height: 80px;
+    font-size: 28px;
+    font-weight: 700;
     border: 1px solid #D34735;
     border-radius: 5px;
+}
+
+.inventory-add {
+    margin-top: 40px;
+    width: 460px;
+    height: 60px;
+    border-radius: 2em;
+    border: none;
+    background-color: #40F99B;
+    font-size: 28px;
+    font-weight: 700;
 }
