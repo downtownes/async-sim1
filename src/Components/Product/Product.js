@@ -12,15 +12,30 @@ export default class Product extends Component {
             name: '',
             price: '',
             picture: '',
+            //42J
+            //42K
             id: this.props.match.params.id.split(''),
-            edit: true
+            edit: true,
+            newName: '',
+            editedPrice: '',
+            button: false
         }
+
+        //37C
+        this.editName = this.editName.bind(this);
+        this.editPrice = this.editPrice.bind(this);
+        this.saveUpdate = this.saveUpdate.bind(this);
+        this.deleteItem = this.deleteItem.bind(this);
+        this.saveButton = this.saveButton.bind(this);
     }
 
-
+    //44E
     componentDidMount() {
         let id = this.props.match.params.id.split('');
-        axios.get('/api/product/' + id[0] + id[1]).then(res => {
+        //37D
+        //44C
+        //44D
+        axios.get('/api/bin/' + id[0] + id[1]).then(res => {
             console.log(res.data)
             this.setState({
                 name: res.data[0].prod_name,
@@ -32,18 +47,53 @@ export default class Product extends Component {
 
     editButton() {
         this.setState({
-            edit: false
+            edit: false,
+            button: true
         })
     }
 
-    // deleteItem() {
-    //     axios.delete(`/api/product/${this.state.id.join('')}`).then(res => {
-            
-    //     })
-    // }
+    saveButton() {
+        this.setState({
+            edit: true,
+            button: false
+        })
+    }
+
+    editName(name) {
+        this.setState({
+            name: name
+        })
+    }
+
+    editPrice(price) {
+        this.setState({
+            price: price
+        })
+    }
+
+    saveUpdate() {
+        let updatedBin = {
+            shelf: this.state.id[0],
+            bin: this.state.id[1],
+            name: this.state.name,
+            price: this.state.price,
+            picture: 'http://lorempixel.com/200/200/business/'
+        }
+        axios.put(`/api/bin/${this.state.id[0]}${this.state.id[1]}`, updatedBin).then(res => {
+        })
+        //36H
+        this.saveButton();
+    }
+
+    deleteItem() {
+        axios.delete(`/api/bin/${this.state.id[0]}${this.state.id[1]}`).then(res => {
+            //36E
+            this.props.history.push(`/bins/${this.state.id[0]}`)
+        })
+    }
 
     render() {
-        console.log(this.state)
+        console.log(this.state.newName)
         return (
             <div className="product">
                 <div className="bins-nav-cont">
@@ -57,26 +107,25 @@ export default class Product extends Component {
                         <h1 className="bin-nav-title">{`Bin ${this.state.id[1]}`}</h1>
                     </div>
                 </div>
-                {/* ---------------------------------NAVIGATION BAR ABOVE THIS LINE---------------------------------- */}
+    {/* ------------------------------------------NAVIGATION BAR ABOVE THIS LINE------------------------------------ */}
                 <div className="product-parent">
                     <div className="image-container">
-                    <img className="product-image" src={this.state.picture} />
+                        <img className="product-image" src={this.state.picture} />
                     </div>
                     <div className="product-name-price">
                         <h4 className="name-price-headers">Name</h4>
-                        <div className="info-containers"><input disable="true" className="container-text" value={this.state.name}></input></div>
+                        <div className="info-containers"><input className="container-text" type="text" value={this.state.name} disabled={this.state.edit} onChange={(e) => this.editName(e.target.value)}></input></div>
                         <h4 className="name-price-headers">Price</h4>
-                        <div className="info-containers"><input value={this.state.price} disable="true" className="container-text"></input></div>
+                        <div className="info-containers"><input className="container-text" type="text" value={this.state.price} disabled={this.state.edit} onChange={(e) => this.editPrice(e.target.value)}></input></div>
                         <div className="button-container">
-                            <button className="edit-button" onClick={ () => this.editButton()}>Edit</button>
-                            <button className="delete-button">Delete</button>
+                            <button className="edit-button" hidden={this.state.button}onClick={() => this.editButton()}>Edit</button>
+                            <button className="edit-button-two" hidden={this.state.edit} onClick={ () => this.saveUpdate()}>Save</button>
+
+                            {/* 36J */}
+                            <button className="delete-button" onClick={ () => this.deleteItem()}>Delete</button>
                         </div>
                     </div>
-
                 </div>
-
-
-
             </div>
         )
     }

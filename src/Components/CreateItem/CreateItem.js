@@ -44,6 +44,7 @@ export default class CreateItem extends Component {
             this.setState({
                 addedItem: res.data
             })
+            this.props.history.push(`/bins/${this.state.id[0]}`)
         })
     }
 

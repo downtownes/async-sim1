@@ -1,2 +1,2 @@
 DELETE FROM shelf
-WHERE id = $1 AND bin = $2;
+WHERE shelf = $1 AND bin = $2;

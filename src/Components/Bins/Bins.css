@@ -1,4 +1,4 @@
-.bins-nav-cont {
+.bins-nav-cont {  
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -16,6 +16,7 @@
     height: 120px;
     background-color: #D34735;
     display: flex;
+    /* 27F */
     flex-direction: row;
 }
 
@@ -29,7 +30,7 @@
 .create-divs {
     width: 26em;
     height: 60px;
-    background-color: #ED6B5A;
+    background-color: #FFB8AF;
     border-radius: 4px;
     margin-top: 28px;
     display: flex;
@@ -40,7 +41,7 @@
 .bin-shelves {
     width: 26em;
     height: 60px;
-    background-color: #D34735;
+    background-color: #ED6B5A;
     border-radius: 4px;
     margin-top: 28px;
     display: flex;
